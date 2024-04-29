@@ -9,6 +9,8 @@
 
    built_and_test:
     runs-on: ubuntu-latest
+    env:
+      HEADLESS_CHROME: true
 
     steps:
       - uses: actions/checkout@v4
