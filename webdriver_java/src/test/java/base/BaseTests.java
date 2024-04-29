@@ -63,7 +63,7 @@ public class BaseTests {
         options.addArguments("disable-infobars");
 
         // Default headless mode off, set to true based on env var
-        var headless = Boolean.parseBoolean(System.getenv("HEADLESS_CHROME")) | false;
+        var headless = Boolean.parseBoolean(System.getenv("HEADLESS_CHROME"));
         options.setHeadless(headless);
         return options;
     }

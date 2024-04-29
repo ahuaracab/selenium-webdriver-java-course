@@ -9,9 +9,6 @@
 
    built_and_test:
     runs-on: ubuntu-latest
-    env:
-      RUNNER_OS: true
-      HEADLESS_CHROME: true
 
     steps:
       - uses: actions/checkout@v4
@@ -19,8 +16,6 @@
         with:
           distribution: 'zulu'
           java-version: 17
-      - name: Donde estoy
-        run: pwd
       - name: Run tests with maven
         working-directory: webdriver_java
         run: mvn test
