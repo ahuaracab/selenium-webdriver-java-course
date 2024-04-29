@@ -25,6 +25,7 @@ public class BaseTests {
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
+        driver.manage().window().maximize();
         driver.register(new EventReporter());
     }
 
