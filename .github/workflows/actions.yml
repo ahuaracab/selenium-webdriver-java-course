@@ -21,7 +21,6 @@
           java-version: 17
       - name: Donde estoy
         run: pwd
-      - name: Lista donde estoy
-        run: ls -la
       - name: Run tests with maven
+        working-directory: webdriver_java
         run: mvn test
