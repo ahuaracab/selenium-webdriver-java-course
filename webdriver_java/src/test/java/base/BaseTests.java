@@ -11,6 +11,7 @@ import pages.HomePage;
 import utils.CookieManager;
 import utils.EventReporter;
 import utils.WindowManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,11 +23,7 @@ public class BaseTests {
 
     @BeforeClass
     public void setUp(){
-        var driverExtention = "";
-        if(System.getenv("RUNNER_OS") != null) {
-            driverExtention = "-linux";
-        };
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver" + driverExtention);
+        WebDriverManager.chromedriver().setup();
         driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
     }
