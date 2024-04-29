@@ -19,9 +19,9 @@
         with:
           distribution: 'zulu'
           java-version: 17
-      - name: List directory contents
+      - name: Donde estoy
+        run: pwd
+      - name: Lista donde estoy
         run: ls -la
-        working-directory: selenium-webdriver-java-course/web_driver_java
       - name: Run tests with maven
-        working-directory: selenium-webdriver-java-course/web_driver_java
         run: mvn test
