@@ -6,14 +6,16 @@
        - "**"
 
  jobs:
+
    built_and_test:
     runs-on: ubuntu-latest
     env:
       RUNNER_OS: true
       HEADLESS_CHROME: true
+
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java
+      - uses: actions/setup-java@4
         with:
           distribution: 'zulu'
           java-version: 17
