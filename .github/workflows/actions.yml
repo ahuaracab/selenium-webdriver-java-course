@@ -9,6 +9,7 @@
 
    built_and_test:
     runs-on: ubuntu-latest
+
     env:
       HEADLESS_CHROME: true
 
@@ -24,8 +25,8 @@
         working-directory: webdriver_java
         run: mvn test
       - name: Collect build data
+        working-directory: webdriver_java
         if: always()
         run: |
           echo "TOTAL_DURATION = $(expr $(date +%s) - ${START_TIME})"
-          pwd
-          ./webdriver_java/resources/test_result_script.sh
+          ./resources/test_result_script.sh
