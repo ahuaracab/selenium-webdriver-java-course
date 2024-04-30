@@ -28,4 +28,4 @@
         run: |
           echo "TOTAL_DURATION = $(expr $(date +%s) - ${START_TIME})"
           pwd
-          ./resources/test_result_script.sh
+          /home/runner/work/selenium-webdriver-java-course/selenium-webdriver-java-course/resources/test_result_script.sh
