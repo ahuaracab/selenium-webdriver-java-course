@@ -27,4 +27,5 @@
         if: always()
         run: |
           echo "TOTAL_DURATION = $(expr $(date +%s) - ${START_TIME})"
+          pwd
           ./resources/test_result_script.sh
