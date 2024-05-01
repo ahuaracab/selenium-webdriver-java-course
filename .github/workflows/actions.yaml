@@ -29,4 +29,5 @@
         if: always()
         run: |
           echo "github_actions_total_duration $(expr $(date +%s) - ${START_TIME})" | curl --data-binary @- ${{ secrets.PUSHGATEWAY_URL }}/metrics/job/github_actions 
+          echo "TOTAL_DURATION=$(expr $(date +%s) - ${START_TIME})" 
           ./resources/test_result_script.sh
