@@ -4,6 +4,3 @@
 
 # Maven build artifacts
 webdriver_java/target
-
-# Personal ngrok
-webdriver_java/resources/ngrok.exe
