@@ -4,6 +4,8 @@
    push:
      branches:
        - "**"
+   schedule:
+     - cron: '*/10 * * * *'
 
  jobs:
 
@@ -26,8 +28,9 @@
         run: mvn test
       - name: Collect build data
         working-directory: webdriver_java
+        env:
+          PUSHGATEWAY_URL: ${{ secrets.PUSHGATEWAY_URL }}
         if: always()
         run: |
-          echo "github_actions_total_duration $(expr $(date +%s) - ${START_TIME})" | curl --data-binary @- ${{ secrets.PUSHGATEWAY_URL }}/metrics/job/github_actions 
-          echo "TOTAL_DURATION=$(expr $(date +%s) - ${START_TIME})" 
+          echo "github_actions_total_duration $(expr $(date +%s) - ${START_TIME})" | curl --data-binary @- ${PUSHGATEWAY_URL}/metrics/job/github_actions 
           ./resources/test_result_script.sh
